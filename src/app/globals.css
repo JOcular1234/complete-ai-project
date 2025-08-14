@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Add to your CSS file (e.g., globals.css) */
+.react-markdown h1,
+.react-markdown h2,
+.react-markdown h3 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.react-markdown p {
+  margin-bottom: 0.5rem;
+}
+.react-markdown ul,
+.react-markdown ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.react-markdown strong {
+  font-weight: 600;
+}
+.react-markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.react-markdown th,
+.react-markdown td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}

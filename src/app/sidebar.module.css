@@ -1,0 +1,125 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 260px;
+  background: #fff;
+  color: #222;
+  border-right: 1px solid #eee;
+  z-index: 30;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+  overflow-y: auto;
+}
+
+.sidebar.dark {
+  background: #23272f;
+  color: #eee;
+  border-right: 1px solid #333;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-header.dark {
+  border-bottom: 1px solid #333;
+}
+
+.service-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.service-button.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+.service-button:not(.active) {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+.dark .service-button:not(.active) {
+  background: #374151;
+  color: #d1d5db;
+}
+
+.sidebar-history {
+  padding: 1rem 0.5rem;
+}
+
+.sidebar-history-item {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-history-item:hover,
+.sidebar-history-item.active {
+  background: #e5e7eb;
+}
+
+.sidebar.dark .sidebar-history-item:hover,
+.sidebar.dark .sidebar-history-item.active {
+  background: #374151;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 16px;
+  z-index: 40;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-toggle.dark {
+  background: #23272f;
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 80vw;
+    min-width: 200px;
+    max-width: 340px;
+  }
+  .sidebar-toggle {
+    left: 8px;
+    top: 12px;
+  }
+}
