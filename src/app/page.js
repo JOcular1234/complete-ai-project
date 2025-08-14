@@ -542,7 +542,7 @@ export default function Home() {
         <div className="p-4 font-bold text-lg border-b dark:border-gray-700">
           <div className="flex flex-col gap-2 mb-4">
             <button
-              onClick={() => setCurrentService('chat')}
+              onClick={() => { setCurrentService('chat'); setIsHistoryOpen(false); }}
               className={`flex-1 py-2 rounded-lg text-sm font-medium ${
                 currentService === 'chat'
                   ? 'bg-blue-600 text-white'
@@ -552,7 +552,7 @@ export default function Home() {
               Chat
             </button>
             <button
-              onClick={() => setCurrentService('stt')}
+              onClick={() => { setCurrentService('stt'); setIsHistoryOpen(false); }}
               className={`flex-1 py-2 rounded-lg text-sm font-medium ${
                 currentService === 'stt'
                   ? 'bg-blue-600 text-white'
@@ -562,7 +562,7 @@ export default function Home() {
               Speech-to-Text
             </button>
             <button
-              onClick={() => setCurrentService('tts')}
+              onClick={() => { setCurrentService('tts'); setIsHistoryOpen(false); }}
               className={`flex-1 py-2 rounded-lg text-sm font-medium ${
                 currentService === 'tts'
                   ? 'bg-blue-600 text-white'
@@ -572,7 +572,7 @@ export default function Home() {
               Text-to-Speech
             </button>
             <button
-              onClick={() => setCurrentService('tti')}
+              onClick={() => { setCurrentService('tti'); setIsHistoryOpen(false); }}
               className={`flex-1 py-2 rounded-lg text-sm font-medium ${
                 currentService === 'tti'
                   ? 'bg-blue-600 text-white'
@@ -600,7 +600,7 @@ export default function Home() {
               chatHistory.map((item) => (
                 <div key={item.id} className="flex items-center group">
                   <button
-                    onClick={() => loadChatFromHistory(item)}
+                    onClick={() => { setMessages(chatObj.chat); setCurrentChatId(chatObj.id); setCurrentService('chat'); setIsHistoryOpen(false); }}
                     className="flex-1 text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
                   >
                     {item.title}
@@ -622,7 +622,7 @@ export default function Home() {
               sttHistory.map((item, index) => (
                 <div key={index} className="flex items-center group">
                   <button
-                    onClick={() => loadSttFromHistory(item)}
+                    onClick={() => { setTranscription(item.fullTranscription); setCurrentService('stt'); setIsHistoryOpen(false); }}
                     className="flex-1 text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
                   >
                     <p className="text-sm truncate">{item.fileName}</p>
@@ -649,7 +649,7 @@ export default function Home() {
               ttsHistory.map((item, index) => (
                 <div key={index} className="flex items-center group">
                   <button
-                    onClick={() => loadTtsFromHistory(item)}
+                    onClick={() => { setTtsPrompt(item.prompt); setAudioUrl(item.audioUrl); setCurrentService('tts'); setIsHistoryOpen(false); }}
                     className="flex-1 text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
                   >
                     <p className="text-sm truncate">{item.prompt}</p>
@@ -676,7 +676,7 @@ export default function Home() {
               ttiHistory.map((item, index) => (
                 <div key={index} className="flex items-center group">
                   <button
-                    onClick={() => loadTtiFromHistory(item)}
+                    onClick={() => { setTtiPrompt(item.prompt); setImageUrl(item.imageUrl); setCurrentService('tti'); setIsHistoryOpen(false); }}
                     className="flex-1 text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
                   >
                     <CldImage
